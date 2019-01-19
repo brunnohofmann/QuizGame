@@ -1,11 +1,51 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="questions">
+  <div *ngIf="question" >
+    <ion-grid no-padding>
+      <ion-row class="md-color-white">
+        <ion-col col-12 col-sm class="p6" (click)="checkAnswer('usiadiuashduahsuu')">
+          <h2 class="text-center"><b>{{question.pergunta}}</b></h2>
+        </ion-col>
+      </ion-row>
+      <ion-row class="answers">
+        <ion-col col-6 col-sm
+                 ripple
+                 class="py5 px3 text-center md-color-white ripple"
+                 [ngClass]="alternative.key"
+                 (rtap)="checkAnswer(alternative)"
+                 (rclick)="checkAnswer(alternative)"
+                 *ngFor="let alternative of question.alternatives">
+            {{alternative.alt}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
-<ion-content padding>
+  <div *ngIf="message">
+    <ion-grid no-padding>
+      <ion-row class="md-color-white">
+        <ion-col col-12 col-sm class="p6">
+          <h2 class="text-center"><b>{{message.interjection}}</b></h2>
+        </ion-col>
+      </ion-row>
+      <ion-row class="md-color-white">
+        <ion-col col-12 col-sm class="p6">
+          <h2 class="text-center">{{message.message}}</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="answers">
+        <ion-col col-12 col-sm
+                 ripple
+                 (rtap)="_continue()"
+                 (rclick)="_continue()"
+                 class="py5 px3 text-center md-color-white ripple">
+          Continuar
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="is_wrong">
+    Está certa
+  </div>
 
 </ion-content>

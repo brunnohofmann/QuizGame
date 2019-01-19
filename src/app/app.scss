@@ -1,5 +1,11 @@
 // http://ionicframework.com/docs/theming/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@import "./colors";
+@import "./layout";
 
+*:not(ion-icon) {
+  font-family: 'Montserrat' !important;
+}
 
 // App Global Sass
 // --------------------------------------------------
